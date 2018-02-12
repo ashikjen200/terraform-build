@@ -64,11 +64,11 @@ resource "aws_iam_role_policy_attachment" "test-attach" {
 ##Lambda Function Creation
 
 resource "aws_lambda_function" "Create-Thumbnail" {
-  filename         = "function/CreateThumbnail.zip"
+  filename         = "CreateThumbnail.zip"
   function_name    = "Create-Thumbnail"
   role             = "${aws_iam_role.iam_for_terraform_lambda.arn}"
   handler          = "CreateThumbnail.handler"
-  source_code_hash = "${base64sha256(file("function/CreateThumbnail.zip"))}"
+  source_code_hash = "${base64sha256(file("CreateThumbnail.zip"))}"
   runtime          = "python3.6"
 
   environment {
